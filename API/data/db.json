@@ -1,0 +1,11 @@
+{"products":[
+{
+"id":"ef2af5db-8891-4e58-aa73-e8ecaa2b7977" ,"name":"NESTLE 5 LITRE " ,"url": " /images/5l.png" , "content" : "Stay refreshed and hydrated with Nestlé 5-Litre Water Bottle, a perfect solution for homes, offices, and outdoor gatherings. Sourced from carefully selected natural reserves and purified using advanced filtration technology, this bottled water ensures safe, clean, and crisp-tasting hydration for you and your loved ones.","price":"350" ,"message":"IS ADDED TO CART"
+},
+{
+    "id":"9f81eab7-fa48-4085-aed3-15c6f67f2981" ,"name":"NESTLE 1.5 LITRE " ,"url": " /images/1.5litre.png" , "content" :"Stay refreshed wherever you go with the Nestlé 1.5-Litre Water Bottle, the perfect companion for daily hydration. Sourced from premium natural reserves and purified to the highest standards, this bottle ensures clean, crisp, and refreshing water with every sip.","price":"540","message":"IS ADDED TO CART"
+},
+{
+    "id":"1c727480-fd69-46c6-98ae-9a5857fc9434" ,"name":"NESTLE 0.5 LITRE " ,"url": "  /images/0.5l.png" , "content":"Quench your thirst on the go with the Nestlé 0.5-Litre Water Bottle, a compact and convenient hydration solution for your busy lifestyle. Sourced from natural reserves and purified to the highest standards, this bottle ensures clean, fresh, and great-tasting water with every sip.","price":"580","message":"IS ADDED TO CART"
+}
+]}

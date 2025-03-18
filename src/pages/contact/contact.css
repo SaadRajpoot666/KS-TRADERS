@@ -1,0 +1,55 @@
+   
+.msg{
+    font-size: 15px;
+    color: red;
+}
+.contact-image:hover{
+scale: none;
+}
+@media screen and (max-width:1024px){
+     .contact-image{
+       display: none;
+     }
+     form{
+         margin-left: 1rem;
+        
+     }
+     .submit-btn{
+        width: 100%;
+     }
+}
+.dark .submit-btn{
+    background: white;
+    color: black;
+    border-color: white;
+}
+.dark .submit-btn:hover{
+    background-color: black;
+    color: white;
+    border-color: black;
+    
+}
+.light .submit-btn:hover {
+    background: white;
+    color: black;
+    border-color: white;
+
+}
+
+.dark .submit-btn:active{
+    background-color: black;
+    color: white;
+    border-color: black;
+    
+}
+.light .submit-btn:active{
+    background: white;
+    color: black;
+    border-color: white;
+
+}
+.light .submit-btn{
+background-color: black;
+color: white;
+border-color: black;
+}

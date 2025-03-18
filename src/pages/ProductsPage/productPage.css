@@ -1,0 +1,76 @@
+@media screen and (min-width:1025px){
+
+    :root {
+        --shaded-border: linear-gradient(to right, #ae040f, black, silver);
+}
+@keyframes movingBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+.shaded-borders {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  width: max-content;
+}
+.shaded-borders::after {
+    content: "";
+    position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 30px;
+  height: 4px;
+  background: var(--shaded-border);
+  animation: movingBorder 1s linear infinite;
+  background-size: 200% 100%;
+} 
+.product-card-image:hover{
+    scale: none;
+}  
+}
+.add-to-cart-btn{
+    font-family: poppins;
+}
+/* making cards responsive */
+@media screen and (max-width:1024px){
+    .product-page-container{
+        display: flex;
+        flex-direction: column;
+        padding-top: 16px;
+        margin-bottom: 30%;
+        
+    } 
+.product-image-container{
+    display: flex;
+    justify-content: center;
+} 
+.product-content-container{
+ margin-top: 40px; 
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.shaded-borders{
+    text-align: center;
+}
+.content-paragraph{
+    width: 100%;
+    padding: 10px;
+}
+.product-price{
+    padding: 10px;
+    font-family: "poppins";
+}  
+.add-to-cart-container{
+  display: flex;
+  justify-content: center;
+}
+}

@@ -1,0 +1,77 @@
+@media screen and (max-width:639px){
+.home,.product,
+.contact{
+    display: none;
+} 
+    .navbar{
+        gap: .5rem;
+        font-size: 12px;
+        font-family: serif;
+    }
+    .navbar-header{
+        padding-left: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: 10px;
+
+    }
+} 
+ 
+   :root{
+    --fadded-border : linear-gradient(to left,white,#ae040f,white)
+   } 
+.navbar-header{
+    border: 2px solid;
+    border-image: var(--fadded-border);
+    border-image-slice: 1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    
+     
+    
+} 
+.light .bottom-nav{
+    background-color: white;
+    color: #ae040f;
+}
+.dark .bottom-nav{
+    background-color: #18181b;
+    color: white;
+}
+ .dark .navbar-header{
+    background: #18181b;
+}
+.dark .company-logo{
+    color: white;
+}
+
+.dark .home,
+.dark .contact,
+.dark .product{
+    border-bottom: 2px solid #18181b;
+}
+.dark .contact:hover,
+.dark .product:hover,
+.dark .home:hover{
+    border-bottom:2px solid white;
+}
+.dark{
+    background: #333333;
+}
+.quantity{
+    font-size: 10px;
+}
+.active{
+    color: red;
+transition: 500ms;
+}
+.company-logo{
+    font-size: 20px;
+
+}
+@media screen and (max-width: 390px){
+    .company-logo{
+font-size: 12px;
+    }
+}

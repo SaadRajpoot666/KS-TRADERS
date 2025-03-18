@@ -1,0 +1,72 @@
+.custom-prev{
+
+    background: none;
+    padding: 10px;
+    cursor: pointer;
+   
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+       
+}
+.custom-next {
+
+ 
+  background: none;
+  padding: 10px;
+  cursor: pointer;
+ 
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+ 
+}
+.prev:hover,
+.next:hover{
+scale: none;
+}
+
+.custom-prev { left: 10px; }
+.custom-next { right: 10px; }
+
+.custom-prev:hover,
+.custom-next:hover {
+  scale: 1.1;
+  background: none;
+}
+.custom-next:active{
+    background: none;
+}
+.slickSlider{
+  position: relative;
+}  
+.prev,
+.next{
+  
+  background: none;
+  padding: 10px;
+  cursor: pointer;
+ 
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+ 
+}
+@media screen and (max-width:1024px){
+  .next,
+  .custom-next,
+  .custom-prev,
+  .prev{
+    display: none;
+  }
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+@media screen and (max-width: 639px){
+  .slickSlider{
+    height: max-content;
+  }
+}
