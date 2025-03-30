@@ -59,7 +59,7 @@ const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
               </NavLink>
             </li>
             <div>
-              <button className="absolute  right-10" onClick={toggle}>
+              <button className="fixed top-3 right-5" onClick={toggle}>
                 {theme === "light" ? <GoMoon   /> : <CiSun />}
               </button>
             </div>

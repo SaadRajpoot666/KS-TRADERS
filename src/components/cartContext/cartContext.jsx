@@ -18,7 +18,9 @@ export function CartProvider({ children }) {
       }
     });
   };
-  
+  const handleCartCheckout = ()=>{
+    setCart([])
+  }
 
   const removeFromCart = (id) => {
     setCart((prevCart) =>
@@ -45,7 +47,7 @@ export function CartProvider({ children }) {
     })
   }
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart,removeItemsFromCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart,removeItemsFromCart, handleCartCheckout }}>
       {children}
     </CartContext.Provider>
   );

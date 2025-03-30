@@ -4,8 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-     
-  "start": "json-server  db.json --port 5000",
+    "start": "json-server  db.json --port 5000",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -14,6 +13,7 @@
   "dependencies": {
     "@heroicons/react": "^1.0.6",
     "@tailwindcss/vite": "^4.0.1",
+    "axios": "^1.8.4",
     "framer-motion": "^12.5.0",
     "json-server": "^1.0.0-beta.3",
     "react": "^18.3.1",
@@ -38,5 +38,4 @@
     "globals": "^15.14.0",
     "vite": "^6.0.5"
   }
- 
 }

@@ -4,6 +4,7 @@ import { ProductsPage } from "../pages/ProductsPage/ProductsPage";
 import { NavBar } from "../components/Navbar/NavBar";
  import { Cart } from "../components/cart/cart";
 import { Contact } from "../pages/contact/Contact";
+import {Checkout} from "../pages/checkout/checkout"
 
 export const router = createBrowserRouter([
   {path:"/*", element : <h1 className="text-6xl text-red-800 " style={{
@@ -22,7 +23,14 @@ export const router = createBrowserRouter([
 
   { path: "/cart", element: <CartLayout /> },
   { path: "/contact", element: <ContactLayout /> },
+  {path:"/checkout" , element:<CheckoutLayout  />}
 ]);
+function CheckoutLayout(){
+  return <> 
+  <NavBar  />
+<Checkout  />
+  </>
+}
 function ProductLayout() {
   return (
     <>

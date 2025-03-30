@@ -1,0 +1,48 @@
+ 
+.dark input::placeholder {
+  font-family: serif;
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .input-field  {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+
+  }
+  
+  .underline {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: black;
+    transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
+  }
+  .dark .underline {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 5px;
+    background: gray;
+    transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
+  }
+  input:focus + .underline,
+  input:hover + .underline {
+    width: 100%;
+    left: 0;
+  }
+.error{
+    font-size: 10px;
+    width: 100%;
+    color: red;
+}  

@@ -4,11 +4,12 @@ import "./cart.css";
 import { FaCheckCircle } from "react-icons/fa";
  
 import { currencyFormatter } from "../../assets/JavaScript Files/currecyFormater";
+import { Link } from "react-router-dom";
 export function Cart() {
   const { cart, removeFromCart, removeItemsFromCart } = useCart();
   console.log(cart);
   const getTotalQuantity = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cart.reduce((total, item) => total + item.quantity * item.unitPrice, 0);
   };
 
   const [showSuccess, setShowSuccess] = useState(false);
@@ -38,9 +39,9 @@ export function Cart() {
   };
   return (
     <>
-      <h1 className="text-3xl cart-items capitalize text-center mt-[10px] ">
+      <h1 className="text-3xl  cart-items capitalize text-center mt-[10px] ">
         {" "}
-        cart items
+CART ITEMS
       </h1>
       {showSuccess && (
         <div className="fixed top-10 left-1/2 transform w-[100%] -translate-x-1/2 bg-red-500 text-white px-6 py-2 rounded-md flex justify-center shadow-lg">
@@ -92,13 +93,13 @@ export function Cart() {
           </div>
         ))
       )} 
-      <div className="total-amount-container  relative flex flex-row border-2 hover:border-red-800 hover:text-black pt-2 pb-2  mt-[5%] hover:bg-white  bg-red-800   border-white  text-white">
-        <p className="pl-3">Total price </p>
-         <p className="md:absolute vertical-bar md:left-[50%] md:right-[50%] ">|</p>
-        <p className="md:absolute md:left-[93%] md:right-0 total-amount pr-3">{currencyFormatter (getTotalQuantity())}</p>
+      <div className="total-amount-container capitalize  flex justify-center relative  md:mb-6 flex-row border-2 hover:border-red-800 hover:text-black pt-2 pb-2  mt-[15%] hover:bg-white  bg-red-800   border-white  text-white">
+       Total price   |{""}{""} {currencyFormatter (getTotalQuantity())} 
 
       </div>
-      <button className="capitalize font-bold  w-[100%] bg-white mt-7 border-4 pt-3  pb-3 border-red-800 text-red-800 ">CheckOut | {currencyFormatter (getTotalQuantity())}</button>
+      <Link to="/checkout">
+      <button className="capitalize    mb-20  font-bold  w-[100%] bg-white  border-4 pt-3  pb-3 border-red-800 text-red-800 ">CheckOut | {currencyFormatter (getTotalQuantity())}</button>
+      </Link>
     </>
   );
 }

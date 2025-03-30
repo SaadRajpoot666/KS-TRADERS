@@ -12,44 +12,38 @@ export function Services() {
       transition={{ duration: 0.5, ease:"linear" }}
       viewport={{ amount: 0.2 }} // Trigger when 20% is visible
         className={`flex flex-row   gap-5 services-container pt-16  `}
-      >
-        <div className="  card-container  shadow-2xl rounded-tl-2xl h-[max-content] rounded-br-2xl rounded-tr-4xl rounded-bl-4xl ml-[2%] ">
-          <div className="icon p-4 ">
-            <img src={"/images/delivery.png"} alt="" className="services-image" />
+      > 
+      
+      <div className="bg-white hover:cursor-pointer rounded-tl-2xl shadow-2xl card-container h-[max-content] rounded-br-2xl rounded-tr-4xl rounded-bl-4xl ml-[2%] "> 
+          <div className="content  p-4 mt-6">
+            <h1 className="mb-22 text-2xl capitalize hover:border-b-2 w-[max-content] duration-300 ">   🚚 Free Delivery
+   
+            </h1>
+            <p className="mb-6">
+            Enjoy hassle-free shopping with our fast and free delivery service! No hidden charges—just shop, relax, and let us bring your order right to your doorstep.
+
+
+Let me know if you need any tweaks! 😊
+             </p>
           </div>
-          <div className="content p-4">
+        </div>
+        <div className="bg-white hover:cursor-pointer rounded-tl-2xl shadow-2xl card-container h-[max-content] rounded-br-2xl rounded-tr-4xl rounded-bl-4xl ml-[2%] "> 
+          <div className="content  p-4 mt-6">
+            <h1 className="mb-22 text-2xl capitalize hover:border-b-2 w-[max-content] duration-300 ">  💧 Mineral Water
+            </h1>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio
-              architecto corrupti saepe distinctio, fugiat temporibus, ad
-              mollitia nesciunt assumenda, aspernatur magnam quas aliquam!
+            Stay refreshed with our pure and high-quality mineral water. Sourced from the finest springs, it’s packed with essential minerals to keep you hydrated and healthy every day.
+
+Let me know if you need any adjustments! 😊
             </p>
           </div>
         </div>
-        <div className="bg-white rounded-tl-2xl shadow-2xl card-container h-[max-content] rounded-br-2xl rounded-tr-4xl rounded-bl-4xl ml-[2%] ">
-          <div className="icon p-4 ">
-            <img
-              src={ '/images/bottle.png'}
-              className="h-15 services-image"
-              alt=""
-            />
-          </div>
-          <div className="content p-4 mt-6">
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio
-              architecto corrupti saepe distinctio, fugiat temporibus, ad
-              mollitia nesciunt assumenda, aspernatur magnam quas aliquam!
-            </p>
-          </div>
-        </div>
-        <div className="bg-white sm:mr-4 rounded-tl-2xl shadow-2xl h-[max-content] card-container rounded-br-2xl rounded-tr-4xl rounded-bl-4xl ml-[2%] ">
-          <div className="icon p-4 ">
-            <img src={'/images/price.png'} alt="" className="services-image" />
-          </div>
-          <div className="content p-4 mt-10">
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio
-              architecto corrupti saepe distinctio, fugiat temporibus, ad
-              mollitia nesciunt assumenda, aspernatur magnam quas aliquam!
+        <div className="bg-white hover:cursor-pointer sm:mr-4 rounded-tl-2xl shadow-2xl h-[max-content] card-container rounded-br-2xl rounded-tr-4xl rounded-bl-4xl ml-[2%] ">
+          <div className="content p-4  mt-10">
+            <h1 className="text-2xl mb-18   capitalize hover:border-b-2 w-[max-content] duration-300 ">               💰 Retail Price
+            </h1>
+            <p className="mb-6">
+            Get the best quality products at unbeatable retail prices! We offer fair and affordable rates, ensuring you get great value for your money without compromising on quality. Shop smart and save more with us!
             </p>
           </div>
         </div>

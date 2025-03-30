@@ -1,157 +1,134 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 import "./contact.css";
-import { FormGroup } from "./Form-Group/FormGroup";
+import axios from "axios";
 
 export function Contact() {
   const [showSucess, setShowSucess] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false); //  New state for password visibility
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset, // ✅ Fixed typo
-  } = useForm();
+  const [errors, setErrors] = useState({});
 
-  const handleFormSubmit = (data) => {
-    // ✅ Accept `data`
-    console.log(data); // ✅ Log submitted values
-    setShowSucess(true);
-    reset();
-    setTimeout(() => {
-      setShowSucess(false);
-    }, 3000);
+  const handleFormSubmit = async (data) => {
+    data.preventDefault();
+    let validationErrors = {};
+
+    // Name validation
+    if (!name) validationErrors.name = "Name is required";
+    else if (name.length < 3 || name.length > 20)
+      validationErrors.name = "Name must be between 3 and 20 characters";
+     
+    // Email validation
+    if (!email) validationErrors.email = "Email is required";
+    else if (!email.includes("@")) validationErrors.email = "Email must contain '@'";
+    else if (!email.endsWith("@gmail.com")) validationErrors.email = "Email must end with '@gmail.com'";
+
+    // Password validation
+    if (!password) validationErrors.password = "Password is required";
+    else if (password.length < 3) validationErrors.password = "Password must be at least 3 characters";
+
+    // Phone validation
+    if (!phone) validationErrors.phone = "Enter your phone number";
+    else if (!/^\d{10,11}$/.test(phone)) validationErrors.phone = "Phone number must be 10 or 11 digits";
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setErrors({});
+    
+    // Sending form data to the backend
+    try {
+      const response = await axios.post( "https://ks-traders-backend.vercel.app/contact" , {
+        name,
+        email,
+        password,
+        phone,
+        message,
+      });
+      setShowSucess(true);
+      setTimeout(() => setShowSucess(false), 3000);
+      console.log(response);
+ alert('🎉 Form Submitted Successfully 🎉')
+
+ setName("");
+ setEmail("");
+ setPassword("");
+ setPhone("");
+ setMessage("");
+} catch (err) {
+  console.log("Form Error:", err);
+alert("Error Processing Data")    
+}
   };
 
   return (
     <>
       {showSucess && (
-        <div className="text-center w-[100%] bg-green-400 text-white ">
-          <p>Form submitted successfully!</p>
+        <div className="text-center w-[100%] bg-green-400 text-white">
+          <p>🎉 Form submitted successfully! 🎉</p>
         </div>
       )}
 
-      <h1 className="text-4xl text-gray-950 capitalize text-center  mt-10">
-        Get in Touch
-      </h1>
+      <h1 className="text-4xl text-gray-950 capitalize text-center mt-10">Get in Touch</h1>
 
-      <div className="contact-form-container justify-center flex flex-row">
-        <form
-          onSubmit={handleSubmit(handleFormSubmit)}
-          className="md:ml-[10%] flex flex-col gap-1 mt-20"
-        >
-          {" "}
-          {/* ✅ Fixed submit function */}
-          <FormGroup>
-            {" "}
-            {/* ✅ Fixed error reference */}
-            <input
-              className={`name-input h-10  w-76  pl-5 `}
-              placeholder="Enter your name"
-              {...register("name", {
-                required: "Name is required",
-                maxLength: {
-                  value: 20,
-                  message: "Name cannot exceed 20 characters",
-                },
-                minLength: {
-                  value: 3,
-                  message: "Name must be at least 3 characters",
-                },
-                pattern: {
-                  value: /[A-Z]/,
-                  message: "Name must contain at least 1 UpperCase Character",
-                },
-              })}
-            />
-            {errors.name && <p className="   msg ">{errors?.name?.message}</p>}
-          </FormGroup>
-          <FormGroup>
-            <input
-              className="email h-10  pl-5 w-76"
-              placeholder="Email:"
-              {...register("email", {
-                required: "Email is Required",
-                pattern: { value: /[@]./, message: "Must Contact @ and ." },
-                validate: (value) => {
-                  if (!value.endsWith("@gmail.com")) {
-                    return "Must ends with @gmail.com";
-                  }
-                },
-                minLength: {
-                  value: 4,
-                  message: "Must be at least 4 characters",
-                },
-              })}
-            />
-            {errors?.email && <p className="msg">{errors?.email?.message}</p>}
-          </FormGroup>
-          <FormGroup>
-            <input
-              className="h-10  pl-5  w-76"
-              placeholder="Password"
-              {...register("password", {
-                required: "Password is required",
-                minLength: {
-                  value: 8,
-                  message: "Password should have at least 8 characters",
-                },
-                pattern: {
-                  value: /[0-9]_/,
-                  message: "Password must contain (_) and digits",
-                },
-              })}
-            />
-            {errors.password && (
-              <p className="msg">{errors?.password?.message}</p>
-            )}
-          </FormGroup>
-          <FormGroup>
-            <input
-              className="h-10  pl-5  w-76"
-              placeholder="Phone: 03*********"
-              {...register("phone", {
-                required: "Enter Your Phone Number",
-                pattern: {
-                  value: /[0-9]/,
-                  message: "Must only contains digits",
-                },
-                minLength: {
-                  value: 10,
-                  message: "Phone Number should have at least 10 digits",
-                },
-                maxLength: {
-                  value: 11,
-                  message: "Phone Number cannot exceed 11 digits",
-                },
-              })}
-            />
-            {errors.phone && <p className="msg">{errors?.phone?.message}</p>}
-          </FormGroup>
-          <FormGroup>
-            <textarea
-              name="message"
-              id="message"
-              className="h-50   pl-5  w-76 "
-              placeholder="Your message here"
-            />
-          </FormGroup>
-          <button
-            type="submit"
-            className="w-76 bg-black text-white border-2 border-white rounded-sm hover:bg-white hover:text-black hover:border-black duration-150 pt-1 pb-1 submit-btn"
-          >
+      <div className="contact-form-container flex flex-row">
+        <form onSubmit={handleFormSubmit} className="md:ml-[10%] flex flex-col gap-3 mt-20">
+          <div>
+            <input type="text" name="name" className="h-10 w-76 pl-5" placeholder="Enter your name"
+              value={name} onChange={(e) => setName(e.target.value)} />
+            {errors.name && <p className="msg">{errors.name}</p>}
+          </div>
+
+          <div>
+            <input type="email" name="email" className="h-10 w-76 pl-5" placeholder="Email"
+              value={email} onChange={(e) => setEmail(e.target.value)} />
+            {errors.email && <p className="msg">{errors.email}</p>}
+          </div>
+
+          {/* Password Input with Toggle Button */}
+          <div className="relative">
+            <input type={showPassword ? "text" : "password"} name="password"
+              className="h-10 w-76 pl-5 pr-10" placeholder="Password"
+              value={password} onChange={(e) => setPassword(e.target.value)} />
+            
+            {/* Eye Icon to Toggle Password Visibility */}
+            <button type="button" className="absolute right-2 top-2 text-gray-500"
+              onClick={() => setShowPassword(!showPassword)}>
+              {showPassword ? "🙈" : "👁️"}
+            </button>
+            
+            {errors.password && <p className="msg">{errors.password}</p>}
+          </div>
+
+          <div>
+            <input type="tel" name="phone" className="h-10 w-76 pl-5" placeholder="Phone: 03*********"
+              value={phone} onChange={(e) => setPhone(e.target.value)} />
+            {errors.phone && <p className="msg">{errors.phone}</p>}
+          </div>
+
+          <div>
+            <textarea name="message" className="h-50 w-76 pl-5" placeholder="Your message here"
+              value={message} onChange={(e) => setMessage(e.target.value)} />
+          </div>
+
+          <button type="submit"
+            className="w-[100%] bg-black text-white border-2 mb-20 border-white rounded-sm hover:bg-white hover:text-black hover:border-black duration-150 pt-1 pb-1">
             Submit
           </button>
         </form>
 
-        <div className="form-image-container absolute bottom-0 right-0 top-[30%] ">
-          <img
-            className="contact-image"
-            src="/images/undraw_personal-email_hfut-removebg-preview.png"
-            alt="Contact Illustration" // ✅ Added alt attribute
-          />
+        <div className="form-image-container absolute bottom-0 right-0 top-[30%]">
+          <img className="contact-image"
+            src="/images/undraw_personal-email_hfut-removebg-preview.png" alt="Contact Illustration" />
         </div>
       </div>
+      <p className="text-red-600 relative mb-16  capitalize"><strong className="text-xl">Note:</strong>if it shows error processing data then try again. to submit this error is because of the network error that occurs while parsing data</p>
     </>
   );
 }
