@@ -78,7 +78,7 @@ alert("Error Processing Data")
       <h1 className="text-4xl text-gray-950 capitalize text-center mt-10">Get in Touch</h1>
 
       <div className="contact-form-container flex flex-row">
-        <form onSubmit={handleFormSubmit} className="md:ml-[10%] flex flex-col gap-3 mt-20">
+        <form onSubmit={handleFormSubmit} className="md:ml-[10%] flex justify-center flex-col gap-3 mt-20">
           <div>
             <input type="text" name="name" className="h-10 w-76 pl-5" placeholder="Enter your name"
               value={name} onChange={(e) => setName(e.target.value)} />
