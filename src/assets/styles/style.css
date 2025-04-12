@@ -15,7 +15,7 @@ h1,button{
     font-family: serif;
 }
 .light body{
-    background-color: #f3f4f6;
+    background-color: rgba(245, 245, 245, 0.979);
 }
 p {
     font-size: 1.2rem;
