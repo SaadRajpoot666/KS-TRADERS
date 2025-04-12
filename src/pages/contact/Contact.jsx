@@ -128,7 +128,7 @@ alert("Error Processing Data")
             src="/images/undraw_personal-email_hfut-removebg-preview.png" alt="Contact Illustration" />
         </div>
       </div>
-      <p className="text-red-600 relative mb-16  capitalize"><strong className="text-xl">Note:</strong>if it shows error processing data then try again. to submit this error is because of the network error that occurs while parsing data</p>
+      <p className="text-red-600 w-[100%]  mb-30   capitalize"><strong className="text-xl">Note:</strong>if it shows error processing data then try again. to submit this error is because of the network error that occurs while parsing data</p>
     </>
   );
 }

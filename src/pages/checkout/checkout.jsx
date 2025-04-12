@@ -153,7 +153,7 @@ export const Checkout = () => {
           </button>
         </form>
       </div>
-      <p className="text-red-600 absolute  capitalize"><strong className="text-xl">Note:</strong>if it shows error processing data then try again. to submit this error is because of the network error that occurs while parsing data</p>
+      <p className="text-red-600 mb-24  capitalize"><strong className="text-xl">Note:</strong>if it shows error processing data then try again. to submit this error is because of the network error that occurs while parsing data</p>
     </div>
   );
 };
