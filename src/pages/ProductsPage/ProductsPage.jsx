@@ -62,7 +62,7 @@ export function ProductsPage() {
 
       {/* Success Message */}
       {showSuccess && (
-        <div className="fixed top-10 left-1/2 transform -translate-x-1/2 w-[100%] bg-green-500 text-white px-6 py-2 rounded-md flex justify-center shadow-lg">
+        <div className="fixed top-10 left-1/2 transform -translate-x-1/2 w-[100%] h-[max-content] bg-green-500 text-white px-6 py-2 rounded-md flex justify-center shadow-lg">
           <FaCheckCircle className="mr-2" size={20} />
           <span>{addedProduct} added to cart successfully!</span>
         </div>

@@ -65,7 +65,7 @@ CART ITEMS
         cart.map((item) => (
           <div
             key={item.id}
-            className="mt-16 md:flex md:flex-row cart-item-container md:rounded-tr-2xl md:rounded-br-2xl md:flex-wrap md:ml-2 bg-gray-50 md:w-[40%] "
+            className="mt-16 md:flex md:flex-row cart-item-container md:rounded-tr-2xl md:rounded-br-2xl md:flex-wrap md:ml-2 h-[max-content] bg-gray-50 md:w-[40%] "
           >
             <img
               src={item.url}
@@ -77,18 +77,20 @@ CART ITEMS
               <p className="text-xl pt-[2rem] ">
                {currencyFormatter (item.price) } {""} x<span>{item.quantity}</span>
               </p>
+          <div className="remove-btns">
 
               <button
                 onClick={() => handleRemoveFromCart(item.id, item.name)}
                 className="mt-[2rem] pt-[5px] pr-[10px] pb-[5px] pl-[10px] bg-black rounded-[5px] text-white text-[15px] hover:bg-gray-300 hover:text-black duration-300 "
-              >
-                REMOVE x1
+                >
+                Remove x1
               </button>
-            <button className="pt-[5px] pr-[10px] pb-[5px] pl-[10px] bg-black rounded-[5px] text-white text-[15px] hover:bg-gray-300  ml-3 hover:text-black duration-300"
+            <button className="pt-[5px] pr-[15px] pb-[5px] pl-[10px]  bg-black rounded-[5px] text-white text-[15px] hover:bg-gray-300  md:ml-3 hover:text-black duration-300"
               onClick={() => handleRemoveItemsFromCart(item.id, item.name)}
-            >
+              >
               Remove all
             </button>
+              </div>
             </div>
           </div>
         ))
