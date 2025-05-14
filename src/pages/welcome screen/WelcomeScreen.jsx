@@ -22,12 +22,11 @@ export function WelcomeScreen({ onEnter }) {
   };
 
   return (
-    <div className="flex flex-col  gap-8  absolute top-[50%] left-[50%] translate-[-50%]  ">
-      <h1 className=" welcome-txt md:text-2xl text-xs  text-center w-96 relative px-6 py-3 bg-purple-900 text-gray-950 font-semibold rounded-md overflow-hidden border border-y-gray-950 shadow-[0_0_15px_#a855f7] transition duration-300 linear   ">
-        WELCOME TO <br/> KS TRADERS
-      </h1>
+    <div className="flex flex-col   jusitfy-center absolute top-[50%] left-[50%] gap-20 translate-x-[-50%] translate-y-[-50%]">
+       <img src="/images/ksTradersLogo.png" alt="logo image " className="h-65 welcome-screen-image" />
+
       <button
-        className="relative px-6 py-3 bg-black text-green-400 font-semibold text-lg uppercase rounded-md overflow-hidden border border-green-400 shadow-[0_0_15px_#22c55e] hover:shadow-[0_0_25px_#22c55e] transition duration-300 ease-in-out hover:text-black active:text-black active:bg-green-400 hover:bg-green-400"
+        className="relative px-6 py-3 bg-red-600 text-white font-semibold text-lg uppercase rounded-md border border-white shadow-[0_0_20px_#ffffff88] hover:bg-white hover:text-red-600 hover:shadow-[0_0_25px_#ffffffcc] transition duration-300 ease-in-out hover:border-2 hover:border-red-600 "
         onClick={handleClick}
       >
         ENTER SITE
