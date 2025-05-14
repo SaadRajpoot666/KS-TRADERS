@@ -1,25 +1,34 @@
 @media screen and (max-width:639px){
-.home,.product,
-.contact{
-    display: none;
-} 
+    .home,.product,.contact{
+        display: none;
+    }
+
     .navbar{
         gap: .5rem;
         font-size: 12px;
         font-family: serif;
     }
+
     .navbar-header{
-        padding-left: 10px;
+        padding-left: 0; /* Removed extra padding */
+        padding-right: 0; /* Removed extra padding */
         padding-top: 10px;
         padding-bottom: 10px;
-        padding-right: 10px;
+    }
 
+    .bottom-nav {
+        width: 100vw; /* Ensure full width */
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
     }
 } 
- 
-   :root{
-    --fadded-border : linear-gradient(to left,white,#ae040f,white)
-   } 
+
+:root{
+    --fadded-border: linear-gradient(to left,white,#ae040f,white)
+}
+
 .navbar-header{
     border: 2px solid;
     border-image: var(--fadded-border);
@@ -27,21 +36,23 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    
-     
-    
-} 
+    width: 100%; /* Ensure full width */
+}
+
 .light .bottom-nav{
     background-color: white;
     color: #ae040f;
 }
+
 .dark .bottom-nav{
     background-color: #18181b;
     color: white;
 }
- .dark .navbar-header{
+
+.dark .navbar-header{
     background: #18181b;
 }
+
 .dark .company-logo{
     color: white;
 }
@@ -51,27 +62,44 @@
 .dark .product{
     border-bottom: 2px solid #18181b;
 }
+
 .dark .contact:hover,
 .dark .product:hover,
 .dark .home:hover{
     border-bottom:2px solid white;
 }
+
 .dark{
     background: #333333;
 }
+
 .quantity{
     font-size: 10px;
 }
+
 .active{
     color: red;
-transition: 500ms;
+    transition: 500ms;
 }
+
 .company-logo{
     font-size: 20px;
-
 }
+
 @media screen and (max-width: 390px){
     .company-logo{
-font-size: 12px;
+        font-size: 12px;
     }
+}
+
+/* Prevent Horizontal Scroll */
+body, html {
+    overflow-x: hidden;
+}
+
+/* Ensure full width for mobile navbar */
+.bottom-nav {
+    width: 100vw; /* Ensure full width for mobile navbar */
+    left: 0;
+    right: 0;
 }
