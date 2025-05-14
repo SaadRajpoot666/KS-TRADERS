@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { FaPlus } from "react-icons/fa"; // Solid plus
+import { FaMinus } from "react-icons/fa"; // Solid minus
+
 import { useCart } from "../../components/cartContext/cartContext";
 import { SlickCards } from "../../components/Slick/Slick";
 import { useFetch } from "../../assets/JavaScript Files/CustomHooks";
@@ -11,7 +14,8 @@ import { currencyFormatter } from "../../assets/JavaScript Files/currecyFormater
 export function ProductsPage() {
   const { addToCart } = useCart();
   const [products, setProducts] = useState([]);
-
+  const [quantity, setQuantity] = useState(1);
+  const [quantityError, setQuantityError] = useState("");
   // Success message state
   const [showSuccess, setShowSuccess] = useState(false);
   const [addedProduct, setAddedProduct] = useState(null);
@@ -44,6 +48,10 @@ export function ProductsPage() {
     }, 3000);
   };
 
+  setTimeout(() => {
+    setQuantityError("");
+  }, 2000);
+
   return (
     <div className="bg-white product-page-container relative">
       {/* Loader */}
@@ -59,7 +67,11 @@ export function ProductsPage() {
           Error: {error}
         </p>
       )}
-
+      {quantityError && (
+        <p className="text-red-500 text-2xl flex flex-col items-center">
+          Error: {quantityError}
+        </p>
+      )}
       {/* Success Message */}
       {showSuccess && (
         <div className="relative    w-[100%] h-[max-content] bg-green-500 text-white px-6 py-2 rounded-md flex justify-center shadow-lg">
@@ -96,6 +108,35 @@ export function ProductsPage() {
                   <p className="content-paragraph md:w-3xl xl:w-3xl md:mt-3">
                     {item.content}
                   </p>
+                </div>
+                <div className="w-full flex md:block justify-center">
+                  <div className="quantity-container flex flex-row bg-gray-400 w-max py-4 rounded-md">
+                    <button
+                      className="increment pr-6 "
+                      onClick={(e) => {
+                        setQuantity((prev) => prev + 1);
+                      }}
+                    >
+                      {" "}
+                      <FaPlus />{" "}
+                    </button>
+                    <p className="text-md">{quantity}</p>
+                    <button
+                      className="pl-6 decrement"
+                      onClick={() => {
+                        if (quantity <= 1) {
+                          setQuantityError(
+                            "The Quantity cannot be less than 1"
+                          );
+                          return;
+                        }
+                        setQuantityError("");
+                        setQuantity(quantity - 1);
+                      }}
+                    >
+                      <FaMinus />
+                    </button>
+                  </div>
                 </div>
                 <div className="add-to-cart-container">
                   <button
